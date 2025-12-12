@@ -1,0 +1,52 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import Hero from '../components/Hero.astro';
+import Services from '../components/Services.astro';
+import Destinations from '../components/Destinations.astro';
+import Testimonials from '../components/Testimonials.astro';
+import Contact from '../components/Contact.astro';
+import Footer from '../components/Footer.astro';
+import Blog from '../components/Blog.astro';
+import AboutDriver from '../components/AboutDriver.astro';
+import FloatingWhatsapp from '../components/FloatingWhatsapp.astro';
+---
+
+<Layout title="Viajes con Víctor | Remis y Traslados en Jujuy - Seguro y Puntual">
+    <head slot="head">
+        <meta name="description" content="Remis de confianza en Jujuy. Traslados privados a Salinas Grandes, Aeropuerto Jujuy, Purmamarca y más. Viajes seguros, chofer profesional y precios claros. ¡Reservá tu remis o taxi en Jujuy ahora!">
+        <meta name="keywords" content="remis jujuy, taxi jujuy, remis aeropuerto jujuy, traslados jujuy, turismo jujuy, remis salinas grandes, remis purmamarca, excursiones jujuy, chofer privado jujuy, victor martinez remis, viajes en jujuy, transfers jujuy, taxi aeropuerto jujuy, remis larga distancia jujuy, remis 24 horas jujuy">
+        <meta name="author" content="Víctor Martínez">
+        
+        <!-- Open Graph -->
+        <meta property="og:title" content="Viajes con Víctor | Remis y Traslados de Confianza en Jujuy">
+        <meta property="og:description" content="¿Buscás remis seguro en Jujuy? Viajes a Salinas Grandes, Aeropuerto y toda la provincia. Chofer profesional con 30 años de experiencia. Tarifa fija.">
+        <meta property="og:image" content="/images/remis-real.png">
+        <meta property="og:type" content="website">
+        <meta property="og:locale" content="es_AR">
+        
+        <!-- Twitter -->
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:title" content="Remis en Jujuy - Viajes con Víctor">
+        <meta name="twitter:description" content="Traslados privados y ecónomicos en Jujuy. Aeropuerto, Salinas, Turismo. Reservá por WhatsApp.">
+        <meta name="twitter:image" content="/images/remis-real.png">
+
+        <!-- Geo Tags -->
+        <meta name="geo.region" content="AR-Y">
+        <meta name="geo.placename" content="San Salvador de Jujuy">
+        <meta name="geo.position" content="-24.1858;-65.2995">
+        <meta name="ICBM" content="-24.1858, -65.2995">
+    </head>
+	<Navbar />
+	<main class="overflow-x-hidden">
+		<Hero />
+		<Services />
+        <AboutDriver />
+		<Destinations />
+        <Blog />
+		<Testimonials />
+		<Contact />
+	</main>
+    <FloatingWhatsapp />
+	<Footer />
+</Layout>

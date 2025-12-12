@@ -1,0 +1,120 @@
+---
+const destinations = [
+    {
+        title: "Salinas Grandes",
+        image: "/images/f22b8744f6efd8c14e56785208b8970e.jpg",
+        desc: "Caminá sobre las nubes en el inmenso desierto blanco. Una experiencia fotográfica única.",
+        price: "80.000",
+        duration: "Full Day",
+        whatsappMsg: "Hola, vi tu sitio web hecho por Gabriel. Me interesa reservar Salinas Grandes."
+    },
+    {
+        title: "Hornocal",
+        image: "/images/Desaguadero_01.jpg",
+        desc: "El cerro de los 14 colores. La vista panorámica más impresionante de la Quebrada.",
+        price: "90.000",
+        duration: "Full Day",
+        whatsappMsg: "Hola, vi tu sitio web hecho por Gabriel. Me interesa reservar Hornocal."
+    },
+    {
+        title: "Purmamarca",
+        image: "/images/3563aa00ac3286404b27d3caf225eee5.jpg",
+        desc: "Pueblo de tierra y colores. Visitá el Paseo de los Colorados y la plaza central.",
+        price: "60.000",
+        duration: "Medio Día",
+        whatsappMsg: "Hola, vi tu sitio web hecho por Gabriel. Me interesa reservar Purmamarca."
+    },
+    {
+        title: "Iruya",
+        image: "/images/images (1).jpeg",
+        desc: "Un pueblo mágico colgado en la montaña. Caminos de cornisa y tradición ancestral.",
+        price: "110.000",
+        duration: "Full Day +",
+        whatsappMsg: "Hola, vi tu sitio web hecho por Gabriel. Me interesa reservar Iruya."
+    },
+    {
+        title: "Yala y Termas",
+        image: "/images/images (2).jpeg",
+        desc: "Naturaleza y relax. Lagunas cristalinas y aguas termales a minutos de la ciudad.",
+        price: "45.000",
+        duration: "4 Horas",
+        whatsappMsg: "Hola, vi tu sitio web hecho por Gabriel. Me interesa reservar Yala."
+    },
+     {
+        title: "Humahuaca",
+        image: "/images/purmamarca-jujuy-2.jpg",
+        desc: "Historia viva. Monumento a la Independencia y calles empedradas llenas de cultura.",
+        price: "75.000",
+        duration: "Full Day",
+        whatsappMsg: "Hola, vi tu sitio web hecho por Gabriel. Me interesa reservar Humahuaca."
+    }
+];
+---
+
+<section id="destinos" class="py-24 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="text-center mb-16" data-aos="fade-up">
+            <span class="text-brand-light font-bold tracking-[0.2em] uppercase text-sm mb-2 block">Explorá Jujuy</span>
+            <h2 class="text-4xl md:text-6xl font-black text-gray-900 mb-6 font-outfit">
+                DESTINOS <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-blue to-brand-light">PREMIUM</span>
+            </h2>
+            <p class="text-gray-500 max-w-2xl mx-auto">
+                Elegí tu próxima aventura y viaja con la comodidad que te mereces.
+            </p>
+        </div>
+        
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {destinations.map((dest, i) => (
+                <div 
+                    class="group relative h-[500px] rounded-[2.5rem] overflow-hidden cursor-pointer shadow-xl"
+                    data-aos="fade-up"
+                    data-aos-delay={i * 100}
+                >
+                    <!-- Background Image -->
+                    <img 
+                        src={dest.image} 
+                        alt={dest.title} 
+                        class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" 
+                    />
+                    
+                    <!-- Gradient Overlay (Adapted for Light Theme Context - nice dark fade for text readability) -->
+                    <div class="absolute inset-0 bg-gradient-to-t from-brand-blue/90 via-black/20 to-transparent opacity-90 transition-opacity duration-300"></div>
+
+                    <!-- Content -->
+                    <div class="absolute bottom-0 left-0 w-full p-8 flex flex-col justify-end h-full text-white">
+                        
+                        <!-- Top Tag -->
+                        <div class="mb-auto pt-4">
+                            <span class="text-xs font-bold text-white uppercase tracking-widest border border-white/30 px-3 py-1 rounded-full backdrop-blur-md bg-white/10">
+                                {dest.duration} Trip
+                            </span>
+                        </div>
+
+                        <!-- Main Info -->
+                        <div class="transform transition-transform duration-300 translate-y-2 group-hover:translate-y-0">
+                            <h3 class="text-4xl font-black text-white mb-3 font-outfit leading-tight drop-shadow-lg">
+                                {dest.title}
+                            </h3>
+                            
+                            <p class="text-blue-100 text-sm leading-relaxed mb-6 opacity-90 line-clamp-3 group-hover:line-clamp-none transition-all">
+                                {dest.desc}
+                            </p>
+
+                            <!-- Footer: Price & Button -->
+                            <div class="flex items-center justify-between border-t border-white/20 pt-6">
+                                <div>
+                                    <span class="text-xs text-blue-200 font-medium block uppercase tracking-wider mb-1">Desde</span>
+                                    <span class="text-xl font-bold text-white">${dest.price}<span class="text-xs font-normal text-blue-200">/viaje</span></span>
+                                </div>
+                                
+                                <a href={`https://wa.me/5493884376850?text=${encodeURIComponent(dest.whatsappMsg)}`} target="_blank" class="bg-white text-brand-blue px-6 py-3 rounded-xl font-bold text-sm hover:bg-jujuy-sun hover:text-black transition-colors shadow-lg">
+                                    Reservar
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            ))}
+        </div>
+    </div>
+</section>

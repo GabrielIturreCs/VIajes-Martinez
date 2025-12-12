@@ -1,0 +1,64 @@
+---
+import '../styles/global.css';
+
+interface Props {
+	title: string;
+    description?: string;
+}
+
+const { title, description = "Tu remisero amigo en Jujuy. Viajes seguros, locales y turísticos con Víctor Martínez." } = Astro.props;
+---
+
+<!doctype html>
+<html lang="es" class="scroll-smooth">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content={description} />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+        
+        <!-- Google Fonts: Outfit (Headings) & Inter (Body) -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Outfit:wght@400;700;900&display=swap" rel="stylesheet">
+
+        <!-- AOS for Animations -->
+        <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+		<title>{title}</title>
+	</head>
+	<body class="bg-zinc-950 text-white font-inter overflow-x-hidden">
+		<slot />
+        
+        <script is:inline src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+        <script is:inline>
+            AOS.init({
+                duration: 800,
+                once: true,
+                offset: 100,
+            });
+        </script>
+	</body>
+</html>
+
+<style is:global>
+    h1, h2, h3, h4, h5, h6 {
+        font-family: 'Outfit', sans-serif;
+    }
+    
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+        width: 10px;
+    }
+    ::-webkit-scrollbar-track {
+        background: #1a1a1a;
+    }
+    ::-webkit-scrollbar-thumb {
+        background: #FFE135;
+        border-radius: 5px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+        background: #e6cc00;
+    }
+</style>

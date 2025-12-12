@@ -1,0 +1,78 @@
+---
+const articles = [
+    {
+        title: "Remis en Jujuy: Tu Guía para Viajar Seguro",
+        image: "https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?q=80&w=600&auto=format&fit=crop",
+        excerpt: "Si buscás un <strong>remis en Jujuy</strong> de confianza, la seguridad es lo primero. Consejos para elegir el mejor servicio de transporte privado y evitar estafas. Viajá con choferes habilitados.",
+        time: "5 min",
+        category: "Consejos"
+    },
+    {
+        title: "Excursión a Salinas Grandes: ¿Auto o Tour?",
+        image: "https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?q=80&w=600&auto=format&fit=crop",
+        excerpt: "Descubrí por qué contratar un <strong>viaje privado a Salinas Grandes</strong> es la mejor opción para disfrutar a tu ritmo. Paradas fotográficas exclusivas y tiempo libre sin apuro.",
+        time: "8 min",
+        category: "Turismo"
+    },
+    {
+        title: "Traslados al Aeropuerto de Jujuy (Horacio Guzmán)",
+        image: "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?q=80&w=600&auto=format&fit=crop",
+        excerpt: "Llegá a tiempo y sin estrés. Todo lo que tenés que saber sobre <strong>taxis y remises al aeropuerto de Jujuy</strong>. Tarifas, equipaje y reservas online las 24 horas.",
+        time: "4 min",
+        category: "Aeropuerto"
+    }
+];
+---
+
+<section id="blog" class="py-24 bg-white">
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="text-center mb-16" data-aos="fade-up">
+            <span class="text-brand-light font-bold tracking-widest uppercase text-sm mb-2 block">Blog de Viajes</span>
+            <h2 class="text-4xl md:text-5xl font-black text-gray-900 mb-6">HISTORIAS Y <span class="text-brand-blue">CONSEJOS</span></h2>
+            <p class="text-gray-500 max-w-2xl mx-auto">
+                Tips para moverte por Jujuy como un local.
+            </p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-8">
+            {articles.map((article, i) => (
+                <article class="bg-gray-50 rounded-[2rem] overflow-hidden group cursor-pointer hover:shadow-xl transition-all duration-300" data-aos="fade-up" data-aos-delay={i * 100}>
+                    <div class="h-48 overflow-hidden relative">
+                        <img src={article.image} alt={article.title} class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700" />
+                        <div class="absolute top-4 left-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-bold text-brand-blue shadow-sm">
+                            {article.category}
+                        </div>
+                    </div>
+                    <div class="p-8">
+                        <span class="text-gray-400 text-xs font-bold mb-3 block flex items-center gap-1">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                            {article.time} de lectura
+                        </span>
+                        <h3 class="text-xl font-black text-gray-900 mb-3 leading-tight group-hover:text-brand-blue transition-colors">
+                            {article.title}
+                        </h3>
+                        <p class="text-gray-600 text-sm leading-relaxed mb-4" set:html={article.excerpt}></p>
+                        <span class="text-brand-blue font-bold text-sm flex items-center gap-2 group-hover:translate-x-1 transition-transform">
+                            Leer artículo completo 
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" x2="19" y1="12" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                        </span>
+                    </div>
+                </article>
+            ))}
+        </div>
+
+        <!-- SEO Content Block (Hidden from visual layout but present for crawlers) -->
+        <div class="hidden">
+            <h2 class="text-lg font-bold mb-4 text-gray-500">Servicio de Transporte Privado y Turismo en Jujuy</h2>
+            <p class="mb-2">
+                <strong>Viajes con Víctor</strong> ofrece el servicio de <strong>remis más confiable de San Salvador de Jujuy</strong>. Si estás buscando un <strong>taxi en Jujuy</strong> o un traslado privado al <strong>Aeropuerto Horacio Guzmán</strong>, somos tu mejor opción. Contamos con una flota moderna (Renault Logan modelos nuevos) y choferes profesionales con licencia LINTI y seguro de pasajeros.
+            </p>
+            <p class="mb-2">
+                Realizamos <strong>viajes a Salinas Grandes</strong>, Purmamarca, Tilcara, Humahuaca y Hornocal. A diferencia de las excursiones masivas, nuestros <strong>tours privados en Jujuy</strong> te permiten manejar tus tiempos, parar a sacar fotos y disfrutar del paisaje sin apuros. Ofrecemos tarifas fijas y transparentes para <strong>traslados urbanos</strong>, viajes de larga distancia y servicio de mensajería (encomiendas).
+            </p>
+            <p>
+                ¿Necesitás un <strong>guía en Jujuy</strong>? Víctor Martínez conoce cada rincón de la provincia gracias a sus 30 años de experiencia como conductor de colectivos de larga distancia. Seguridad, puntualidad y confort garantizados. Aceptamos todos los medios de pago: efectivo, transferencia y tarjetas. Reservá tu <strong>remis ejecutivo en Jujuy</strong> hoy mismo por WhatsApp.
+            </p>
+        </div>
+    </div>
+</section>

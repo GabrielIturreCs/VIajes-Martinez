@@ -1,0 +1,70 @@
+---
+const testimonials = [
+    {
+        name: "Ana García",
+        origin: "Buenos Aires, Argentina",
+        text: "¡Hermoso viaje a Purmamarca con Víctor! Súper puntual y amable. Nos explicó todo sobre la zona y nos sentimos muy seguros.",
+        stars: 5,
+        type: "Turista"
+    },
+    {
+        name: "John & Sarah",
+        origin: "New York, USA",
+        text: "Incredible experience in Salinas Grandes. Victor is an excellent guide and driver. Highly recommended for english speakers too!",
+        stars: 5,
+        type: "Turista"
+    },
+    {
+        name: "Carlos M.",
+        origin: "San Salvador de Jujuy",
+        text: "Siempre lo llamo para mis viajes al aeropuerto. Es de confianza, el auto está impecable y siempre llega a horario.",
+        stars: 5,
+        type: "Cliente Frecuente"
+    }
+];
+---
+
+<section class="py-24 bg-white relative">
+    <!-- Background pattern -->
+    <div class="absolute inset-0 bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:16px_16px] opacity-50"></div>
+
+    <div class="max-w-7xl mx-auto px-6 relative z-10">
+        <div class="text-center mb-16" data-aos="fade-up">
+            <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+                Clientes Felices
+            </h2>
+            <p class="text-xl text-gray-600">La confianza se construye viaje a viaje.</p>
+        </div>
+        
+        <div class="grid md:grid-cols-3 gap-8">
+            {testimonials.map((t, i) => (
+                <div class="bg-white p-8 rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-gray-100 hover:border-brand-light transition-all hover:-translate-y-1" data-aos="fade-up" data-aos-delay={i * 100}>
+                    <div class="flex justify-between items-start mb-6">
+                        <div class="flex text-yellow-400">
+                            {"★".repeat(t.stars)}
+                        </div>
+                        <span class="bg-gray-100 text-gray-600 text-xs py-1 px-3 rounded-full font-medium">
+                            {t.type}
+                        </span>
+                    </div>
+                    
+                    <p class="text-gray-700 leading-relaxed mb-6 italic">"{t.text}"</p>
+                    
+                    <div class="flex items-center gap-4 pt-6 border-t border-gray-100">
+                        <div class="w-10 h-10 bg-brand-blue rounded-full flex items-center justify-center text-white font-bold text-sm shadow-md">
+                            {t.name.charAt(0)}
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-gray-900 text-sm">{t.name}</h4>
+                            <span class="text-xs text-gray-500 block">{t.origin}</span>
+                        </div>
+                        <!-- Verified Check -->
+                        <div class="ml-auto text-green-500" title="Reseña Verificada">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                        </div>
+                    </div>
+                </div>
+            ))}
+        </div>
+    </div>
+</section>
