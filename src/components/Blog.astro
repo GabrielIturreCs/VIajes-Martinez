@@ -36,7 +36,7 @@ const articles = [
 
         <div class="grid md:grid-cols-3 gap-8">
             {articles.map((article, i) => (
-                <article class="bg-gray-50 rounded-[2rem] overflow-hidden group cursor-pointer hover:shadow-xl transition-all duration-300" data-aos="fade-up" data-aos-delay={i * 100}>
+                <article class="bg-gray-50 rounded-[2rem] overflow-hidden group cursor-pointer hover:shadow-xl transition-all duration-300 transform-gpu" data-aos="fade-up" data-aos-delay={i * 100} data-tilt data-tilt-max="3" data-tilt-speed="400">
                     <div class="h-48 overflow-hidden relative">
                         <img src={article.image} alt={article.title} class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700" />
                         <div class="absolute top-4 left-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-bold text-brand-blue shadow-sm">

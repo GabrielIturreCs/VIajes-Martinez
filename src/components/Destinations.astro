@@ -51,10 +51,15 @@ const destinations = [
 ];
 ---
 
-<section id="destinos" class="py-24 bg-gray-50">
-    <div class="max-w-7xl mx-auto px-6">
+<section id="destinos" class="py-24 bg-gray-50 relative overflow-hidden">
+    <!-- Parallax Decorative Elements -->
+    <div class="absolute top-20 left-10 w-32 h-32 bg-brand-blue/5 rounded-full blur-3xl mouse-parallax" data-speed="50"></div>
+    <div class="absolute bottom-40 right-20 w-64 h-64 bg-jujuy-sun/10 rounded-full blur-3xl mouse-parallax" data-speed="80"></div>
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] border border-gray-200/50 rounded-full opacity-30 pointer-events-none animate-spin-slow"></div>
+
+    <div class="max-w-7xl mx-auto px-6 relative z-10">
         <div class="text-center mb-16" data-aos="fade-up">
-            <span class="text-brand-light font-bold tracking-[0.2em] uppercase text-sm mb-2 block">Explorá Jujuy</span>
+            <span class="text-brand-light font-bold tracking-[0.2em] uppercase text-sm mb-2 block animate-fade-in-up">Explorá Jujuy</span>
             <h2 class="text-4xl md:text-6xl font-black text-gray-900 mb-6 font-outfit">
                 DESTINOS <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-blue to-brand-light">PREMIUM</span>
             </h2>
@@ -67,33 +72,38 @@ const destinations = [
             {destinations.map((dest, i) => (
                 <div 
                     id={`dest-${dest.title.toLowerCase().replace(/\s+/g, '-')}`}
-                    class="group relative h-[500px] rounded-[2.5rem] overflow-hidden cursor-pointer shadow-xl"
+                    class="group relative h-[500px] rounded-[2.5rem] overflow-hidden cursor-pointer shadow-xl transform-gpu parallax-img-container"
                     data-aos="fade-up"
                     data-aos-delay={i * 100}
+                    data-tilt
+                    data-tilt-max="3"
+                    data-tilt-speed="400"
+                    data-tilt-glare
+                    data-tilt-max-glare="0.3"
                 >
                     <!-- Background Image -->
                     <img 
                         src={dest.image} 
                         alt={dest.title} 
-                        class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" 
+                        class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 scale-125" 
                     />
                     
                     <!-- Gradient Overlay (Adapted for Light Theme Context - nice dark fade for text readability) -->
-                    <div class="absolute inset-0 bg-gradient-to-t from-brand-blue/90 via-black/20 to-transparent opacity-90 transition-opacity duration-300"></div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-brand-blue/90 via-black/20 to-transparent opacity-90 transition-opacity duration-300 group-hover:opacity-100"></div>
 
                     <!-- Content -->
-                    <div class="absolute bottom-0 left-0 w-full p-8 flex flex-col justify-end h-full text-white">
+                    <div class="absolute bottom-0 left-0 w-full p-8 flex flex-col justify-end h-full text-white transform translate-z-10">
                         
                         <!-- Top Tag -->
-                        <div class="mb-auto pt-4">
-                            <span class="text-xs font-bold text-white uppercase tracking-widest border border-white/30 px-3 py-1 rounded-full backdrop-blur-md bg-white/10">
+                        <div class="mb-auto pt-4 transform transition-all duration-500 -translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100">
+                            <span class="text-xs font-bold text-white uppercase tracking-widest border border-white/30 px-3 py-1 rounded-full backdrop-blur-md bg-white/10 shadow-[0_0_15px_rgba(255,255,255,0.3)]">
                                 {dest.duration} Trip
                             </span>
                         </div>
 
                         <!-- Main Info -->
-                        <div class="transform transition-transform duration-300 translate-y-2 group-hover:translate-y-0">
-                            <h3 class="text-4xl font-black text-white mb-3 font-outfit leading-tight drop-shadow-lg">
+                        <div class="transform transition-transform duration-300 translate-y-2 group-hover:translate-y-0 reveal-text">
+                            <h3 class="text-4xl font-black text-white mb-3 font-outfit leading-tight drop-shadow-lg group-hover:text-jujuy-sun transition-colors">
                                 {dest.title}
                             </h3>
                             
@@ -108,7 +118,7 @@ const destinations = [
                                     <span class="text-xl font-bold text-white">${dest.price}<span class="text-xs font-normal text-blue-200">/viaje</span></span>
                                 </div>
                                 
-                                <a href={`https://wa.me/5493884376850?text=${encodeURIComponent(dest.whatsappMsg)}`} target="_blank" class="bg-white text-brand-blue px-6 py-3 rounded-xl font-bold text-sm hover:bg-jujuy-sun hover:text-black transition-colors shadow-lg">
+                                <a href={`https://wa.me/5493884376850?text=${encodeURIComponent(dest.whatsappMsg)}`} target="_blank" class="bg-white text-brand-blue px-6 py-3 rounded-xl font-bold text-sm hover:bg-jujuy-sun hover:text-black transition-all shadow-lg hover:shadow-jujuy-sun/50 hover:scale-105 active:scale-95">
                                     Reservar
                                 </a>
                             </div>
@@ -119,3 +129,13 @@ const destinations = [
         </div>
     </div>
 </section>
+
+<style>
+    @keyframes spin-slow {
+        from { transform: translate(-50%, -50%) rotate(0deg); }
+        to { transform: translate(-50%, -50%) rotate(360deg); }
+    }
+    .animate-spin-slow {
+        animation: spin-slow 60s linear infinite;
+    }
+</style>

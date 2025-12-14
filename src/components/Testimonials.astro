@@ -26,7 +26,7 @@ const testimonials = [
 
 <section class="py-24 bg-white relative">
     <!-- Background pattern -->
-    <div class="absolute inset-0 bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:16px_16px] opacity-50"></div>
+    <div class="absolute inset-0 bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:16px_16px] opacity-50 mouse-parallax" data-speed="100"></div>
 
     <div class="max-w-7xl mx-auto px-6 relative z-10">
         <div class="text-center mb-16" data-aos="fade-up">
@@ -38,7 +38,7 @@ const testimonials = [
         
         <div class="grid md:grid-cols-3 gap-8">
             {testimonials.map((t, i) => (
-                <div class="bg-white p-8 rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-gray-100 hover:border-brand-light transition-all hover:-translate-y-1" data-aos="fade-up" data-aos-delay={i * 100}>
+                <div class="bg-white p-8 rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-gray-100 hover:border-brand-light transition-all hover:-translate-y-1 transform-gpu" data-aos="fade-up" data-aos-delay={i * 100} data-tilt data-tilt-max="3" data-tilt-speed="400">
                     <div class="flex justify-between items-start mb-6">
                         <div class="flex text-yellow-400">
                             {"★".repeat(t.stars)}
